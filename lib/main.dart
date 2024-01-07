@@ -55,7 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  double _counter = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -67,6 +67,41 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
+  void _decrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter--;
+    });
+  }
+  
+   void _multiplyCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter=_counter*2;
+    });
+  }
+
+  void _divideCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter=_counter/2;
+    });
+  }
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +147,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+
+            ElevatedButton(onPressed: _decrementCounter, child: const Icon(Icons.access_alarm),),
+                        ElevatedButton(onPressed: _multiplyCounter, child: const Icon(Icons.access_alarm),),
+                                                    ElevatedButton(onPressed: _divideCounter, child: const Icon(Icons.access_alarm),),
+
+
           ],
         ),
       ),
