@@ -78,15 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter--;
     });
   }
-  
-   void _multiplyCounter() {
+
+  void _multiplyCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter=_counter*2;
+      _counter = _counter * 2;
     });
   }
 
@@ -97,11 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter=_counter/2;
+      _counter = _counter / 2;
     });
   }
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +110,44 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      bottomSheet:Row(
+        
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        
+        
+        children: [
+         const SizedBox(width: 5.0,),
+        
+       
+        ElevatedButton(
+              onPressed: _incrementCounter,
+              child: const Icon(
+                Icons.add,
+              ),
+            ),
+
+          ElevatedButton(
+              onPressed: _decrementCounter,
+              child: const Icon(
+                Icons.remove,
+              ),
+            ),
+            ElevatedButton(
+              onPressed: _multiplyCounter,
+              child: const Icon(Icons.close),
+            ),
+            ElevatedButton(
+              onPressed: _divideCounter,
+              child: const Icon(Icons.safety_divider),
+            ),
+
+            const SizedBox(width: 5.0,),
+
+
+
+
+
+      ]) ,
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -147,20 +183,11 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-
-            ElevatedButton(onPressed: _decrementCounter, child: const Icon(Icons.access_alarm),),
-                        ElevatedButton(onPressed: _multiplyCounter, child: const Icon(Icons.access_alarm),),
-                                                    ElevatedButton(onPressed: _divideCounter, child: const Icon(Icons.access_alarm),),
-
-
+          
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
